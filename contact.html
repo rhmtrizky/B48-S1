@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+</head>
+<body>
+    
+    <nav class="nav-container">
+        <ul>
+            <li class="image">
+                <img src="img/logo.png" alt="">
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="testimonial.html">Testimoni</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="contact.html" class="btn-contact">Contact me</a>
+        </div>
+        <div class="toggle">
+            <div class="menu-toggle">
+                <input type="checkbox" onclick="openHamburger()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <div class="hamburger-container" id="hamburger-container">
+        <a href="index.html" class="nav-active">Home</a>
+        <a href="project.html">Project</a>
+        <a href="testimonial.html">Testimoni</a>
+        <a href="contact.html">Contact Me</a>
+    </div>
+
+
+    <h2>FILL OUT THE FORM</h2>
+    <div class="form-contact">
+        <form>
+            <div>
+                <label>
+                    Name
+                </label>
+                <input placeholder="name" id="name">
+            </div>
+            <div>
+                <label>
+                    Email
+                </label>
+                <input type="email" placeholder="youremail@example.com" id="email">
+            </div>
+            <div>
+                <label>
+                    Phone Number
+                </label>
+                <input placeholder="+62 8xxx xxxx" id="phone">
+            </div>
+            <div>
+                <label>
+                    Subject
+                </label>
+                <select id="subject">
+                    <option value="">Choosing</option>
+                    <option value="Frontend Developer">Frontend Developer</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                    <option value="Fullstack Developer">Fullstack Developer</option>
+                </select>
+            </div>
+            <div>
+                <label>
+                    Message
+                </label>
+                <textarea placeholder="....." id="message"></textarea>
+            </div>
+            <div class="btn-submit">
+                <button type="reset" id="reset">Reset</button>
+                <button type="button" id="submit" onclick="submitData(event)">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/toggle.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
