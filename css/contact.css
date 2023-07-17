@@ -1,0 +1,68 @@
+h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    align-items: center;
+}
+.form-contact form {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px;
+    background-color: rgb(195, 217, 227);
+}
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding-bottom: 15px;
+}
+label {
+    font-weight: bold;
+}
+input, select, textarea {
+    background-color:rgb(166, 189, 199);
+    border-style: none;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px;
+}
+.btn-submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+.btn-submit #submit {
+    border-radius: 10px;
+    background-color: rgb(108, 108, 249);
+    border-style: none;
+    padding: 5px;
+    color: white;
+    width: 100px;
+}
+.btn-submit #submit:hover {
+    background-color:green;
+    cursor: pointer;
+}
+.btn-submit #reset {
+    width: 100px;
+    border-radius: 10px;
+    background-color: red;
+    border-style: none;
+    padding: 5px;
+    color: white;
+}
+.btn-submit #reset:hover {
+    background-color: orangered;
+    cursor: pointer;
+}
