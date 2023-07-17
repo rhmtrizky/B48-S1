@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Project Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <ul>
+            <li class="image">
+                <img src="img/logo.png" alt="">
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="testimonial.html">Testimoni</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="contact.html" class="btn-contact">Contact me</a>
+        </div>
+        <div class="toggle">
+            <div class="menu-toggle">
+                <input type="checkbox" onclick="openHamburger()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <div class="hamburger-container" id="hamburger-container">
+        <a href="index.html" class="nav-active">Home</a>
+        <a href="project.html">Project</a>
+        <a href="testimonial.html">Testimoni</a>
+        <a href="contact.html">Contact Me</a>
+    </div>
+
+    <script src="js/toggle.js"></script>
+    <div>
+        <h2>ADD MY PROJECT</h2>
+    </div>
+    <div class="form-project">
+        <form onsubmit="addData(event)">
+            <div>
+                <label>
+                    Project Name
+                </label>
+                <input type="text" id="project-name" placeholder="project name">
+            </div>
+            <div class="date">
+                <div class="s-date">
+                    <label>
+                        Start Date
+                    </label>
+                    <input type="date" id="start-date">
+                </div>
+                <div class="e-date">
+                    <label>
+                        End Date
+                    </label>
+                    <input type="date" id="end-date">
+                </div>
+            </div>
+            <div>
+                <label>
+                    Description
+                </label>
+                <textarea id="description" rows="5" placeholder="describe your project"></textarea>
+            </div>
+            <div class="box">
+                <label class="" for="">
+                    Technologies
+                </label>
+                <div class="checkbox">
+                    <div class="input-checkbox1">
+                        <div class="box-position">
+                            <label for="nodejs">Node JS</label>
+                            <input type="checkbox" id="nodejs" class="checkbox-input">
+                        </div>
+                        <div class="box-position">
+                            <label for="reactjs">React JS</label>
+                            <input type="checkbox" id="reactjs" class="checkbox-input">
+                        </div>
+                    </div>
+                    <div class="input-checkbox2">
+                        <div class="box-position">
+                            <label for="java">JavaScript</label>
+                            <input type="checkbox" id="java" class="checkbox-input">
+                        </div>
+                        <div class="box-position">
+                            <label for="golang">Golang</label>
+                            <input type="checkbox" id="golang" class="checkbox-input">
+                        </div>
+                    </div>
+                </div>
+            <div>
+                <label>Upload Image</label>
+                <div class="input-image">
+                    <label for="input-image">
+                        <img hidden src="#" alt="file">
+                    </label>
+                    <input type="file" id="input-image" placeholder="">
+                </div>
+            </div>
+            <div class="btn-submit">
+                <button type="reset" id="reset">Reset</button>
+                <button id="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="project-container">
+        <h2>My Project</h2>
+        <div class="base" id="projects">
+            <div class="base-card">
+                <div class="card-content" id="card-content">
+                    <div class="card-content1">
+                        <img src="img/project1.jpg" alt="file" id="project-image">
+                        <h4 id="project-title">Dumb Ways App</h4>
+                        <p class="durasi">Durasi: 3 bulan</p>
+                        <button class="view-more"><a href="project-detail1.html">view more</a></button>
+                        <p class="caption" id="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo alias perferendis provident .</p>
+                    </div>
+                    <div class="card-content2">
+                        <ul>
+                            <li>
+                                <i class="fa-brands fa-node-js"></i>
+                                <i class="fa-brands fa-react"></i>
+                                <i class="fa-brands fa-java"></i>
+                                <i class="fa-brands fa-golang"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-content3">
+                        <button type="" id="edit">edit</button>
+                        <button type="" id="delete" onclick="">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="base-card">
+                <div class="card-content">
+                    <div class="card-content1">
+                        <img src="img/project2.jpg" alt="file" id="project-image">
+                        <h4 id="project-title">FullStack Developer</h4>
+                        <p class="durasi">Durasi: 3 bulan</p>
+                        <button class="view-more"><a href="project-detail2.html">view more</a></button>
+                        <p class="caption" id="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo alias perferendis provident .</p>
+                    </div>
+                    <div class="card-content2">
+                        <ul>
+                            <li>
+                                <i class="fa-brands fa-node-js"></i>
+                                <i class="fa-brands fa-react"></i>
+                                <i class="fa-brands fa-java"></i>
+                                <i class="fa-brands fa-golang"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-content3">
+                        <button type="" id="edit">edit</button>
+                        <button type="" id="delete" onclick="">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="base-card">
+                <div class="card-content">
+                    <div class="card-content1">
+                        <img src="img/project3.jpg" alt="file" id="project-image">
+                        <h4 id="project-title">Education App Mobile</h4>
+                        <p class="durasi">Durasi: 3 bulan</p>
+                        <button class="view-more"><a href="project-detail3.html">view more</a></button>
+                        <p class="caption" id="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo alias perferendis provident .</p>
+                    </div>
+                    <div class="card-content2">
+                        <ul>
+                            <li>
+                                <i class="fa-brands fa-node-js"></i>
+                                <i class="fa-brands fa-react"></i>
+                                <i class="fa-brands fa-java"></i>
+                                <i class="fa-brands fa-golang"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-content3">
+                        <button type="" id="edit">edit</button>
+                        <button type="" id="delete" onclick="">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="base-card">
+                <div class="card-content">
+                    <div class="card-content1">
+                        <img src="img/project4.png" alt="file" id="project-image">
+                        <h4 id="project-title">E-Commerce App Mobile</h4>
+                        <p class="durasi">Durasi: 3 bulan</p>
+                        <button class="view-more"><a href="project-detail4.html">view more</a></button>
+                        <p class="caption" id="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo alias perferendis provident .</p>
+                    </div>
+                    <div class="card-content2">
+                        <ul>
+                            <li>
+                                <i class="fa-brands fa-node-js"></i>
+                                <i class="fa-brands fa-react"></i>
+                                <i class="fa-brands fa-java"></i>
+                                <i class="fa-brands fa-golang"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-content3">
+                        <button type="" id="edit">edit</button>
+                        <button type="" id="delete" onclick="">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="base-card">
+                <div class="card-content">
+                    <div class="card-content1">
+                        <img src="img/project5.jpg" alt="file" id="project-image">
+                        <h4 id="project-title">Restaurant Web App</h4>
+                        <p class="durasi">Durasi: 3 bulan</p>
+                        <button class="view-more"><a href="project-detail5.html">view more</a></button>
+                        <p class="caption" id="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo alias perferendis provident .</p>
+                    </div>
+                    <div class="card-content2">
+                        <ul>
+                            <li>
+                                <i class="fa-brands fa-node-js"></i>
+                                <i class="fa-brands fa-react"></i>
+                                <i class="fa-brands fa-java"></i>
+                                <i class="fa-brands fa-golang"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-content3">
+                        <button type="" id="edit">edit</button>
+                        <button type="" id="delete" onclick="">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="base-card">
+                <div class="card-content">
+                    <div class="card-content1">
+                        <img src="img/project6.jpg" alt="file" id="project-image">
+                        <h4 id="project-title">Music Mobile App</h4>
+                        <p class="durasi">Durasi: 3 bulan</p>
+                        <button class="view-more"><a href="project-detail6.html">view more</a></button>
+                        <p class="caption" id="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo alias perferendis provident .</p>
+                    </div>
+                    <div class="card-content2">
+                        <ul>
+                            <li>
+                                <i class="fa-brands fa-node-js"></i>
+                                <i class="fa-brands fa-react"></i>
+                                <i class="fa-brands fa-java"></i>
+                                <i class="fa-brands fa-golang"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-content3">
+                        <button type="" id="edit">edit</button>
+                        <button type="" id="delete" onclick="">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/toggle.js"></script>
+    <script src="js/project.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const tombol1 = document.querySelector('#submit')
+        tombol1.addEventListener('click', function() {
+            Swal.fire({
+            icon: 'success',
+            title: 'Upload Success!!',
+            text: 'You Have Uploaded Project',
+            type: 'success',
+            showConfirmButton: false,
+            timer: 1000
+            })
+    })
+    </script>
+</body>
+</html>
