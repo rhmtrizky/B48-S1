@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+</head>
+<body>
+
+    <nav class="nav-container">
+        <ul>
+            <li class="image">
+                <img src="img/logo.png" alt="">
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="https://rhmtrizky-webportfolio.vercel.app/">Portfolio</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="contact.html" class="btn-contact">Contact me</a>
+        </div>
+        <div class="toggle">
+            <div class="menu-toggle">
+                <input type="checkbox" onclick="openHamburger()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <div class="hamburger-container" id="hamburger-container">
+        <a href="index.html" class="nav-active">Home</a>
+        <a href="project.html">Project</a>
+        <a href="contact.html">Contact Me</a>
+    </div>
+
+    <div class="base">
+        <div class="base-content">
+            <div class="content1">
+                <div class="fill-1">
+                    <h2>Hi Welcome to My Hut</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore dolores cum beatae ullam provident repudiandae modi libero autem nesciunt, officiis pariatur voluptatem corrupti magnam eveniet mollitia consequatur, temporibus minus cupiditate. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque sint rem eaque inventore. Libero porro ratione, suscipit perspiciatis ea ex tenetur error repellat velit, veritatis dolorem sint doloremque aut vero.</p>
+                </div>
+                <div class="fill-2">
+                    <button><a href="contact.html">contact</a></button>
+                    <p><a href="https://drive.google.com/file/d/1OG-4FBWPUFT3eblVDhx3PJgg7JFMhjXS/view?usp=sharing">download CV</a></p>
+                    <div class="icon"><a href="https://drive.google.com/file/d/1OG-4FBWPUFT3eblVDhx3PJgg7JFMhjXS/view?usp=sharing"><i class="fa-sharp fa-solid fa-file-arrow-down"></i></a></div>
+                </div>
+                <div class="sosmed">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/rhmtrizky"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.instagram.com/rhmtrizky_/"><i class="fa-brands fa-square-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100063377752573"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content2">
+                <img src="img/img.jpg" alt="">
+                <h3>Rahmat Rizky Rifai</h3>
+                <p>Fullstack Developer</p>
+            </div>
+        </div>
+    </div>
+    <script src="js/toggle.js"></script>
+</body>
+</html>

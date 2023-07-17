@@ -1,0 +1,264 @@
+.form-container {
+    width: 100%;
+    height: 100vh;
+    background-color: aqua;
+}
+h2 {
+    text-align: center;
+    padding-top: 30px;
+}
+.form-project {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    align-items: center;
+}
+.form-project form {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: rgb(221, 220, 234);
+    box-shadow: 0 0 2px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    padding-bottom: 10px;
+}
+label {
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+#project-name, #start-date, #end-date, #description{
+    background-color:rgb(194, 201, 221);
+    border-style: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+#start-date, #end-date {
+    width: 88%;
+}
+.box {
+    padding-top: 10px;
+}
+.checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    flex-direction: row;
+}
+.checkbox input[type="checkbox"]{
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgb(221, 220, 234);
+  border-radius: 50%;
+  outline: none;
+  transition: border-color 0.5s;
+}
+.input-checkbox1 {
+    width: 50%;
+}
+.input-checkbox2 {
+    width: 50%;
+}
+.box-position input {
+    margin-top: -23px;
+    border-radius:
+}
+.box-position label {
+    margin-left: 23px;
+}
+.checkbox .input-checkbox1 .box-position label {
+    font-weight: 400;
+    font-size: 14px;
+}
+.checkbox .input-checkbox2 .box-position label {
+    font-weight: 400;
+    font-size: 14px;
+}
+.project-container {
+    width: 100%;
+    background-color: rgb(221, 220, 234);
+    padding-bottom: 20px;
+}
+.btn-submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+.btn-submit #submit {
+    border-radius: 10px;
+    background-color: rgb(108, 108, 249);
+    border-style: none;
+    padding: 5px;
+    color: white;
+    width: 100px;
+}
+.btn-submit #submit:hover {
+    background-color:green;
+    cursor: pointer;
+}
+.btn-submit #reset {
+    width: 100px;
+    border-radius: 10px;
+    background-color: red;
+    border-style: none;
+    padding: 5px;
+    color: white;
+}
+.btn-submit #reset:hover {
+    background-color: rgb(108, 108, 249);
+    cursor: pointer;
+}
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+.base {
+    padding-top: 30px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
+}
+.base-card {
+    background-color: rgb(225, 222, 234);
+    padding: 10px;
+    width: 280px;
+    height: 420px;
+    border-radius: 10px;
+    box-shadow: 0 7px 10px rgb(158, 158, 158);
+}
+img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.card-content1 .durasi {
+    font-size: 10px;
+}
+.view-more {
+    font-size: 10px;
+    padding: 0 5px;
+    cursor: pointer;
+    background-color:rgb(176, 186, 215);
+    border-style: none;
+    border-radius: 5px;
+}
+.view-more a {
+    text-decoration: none;
+}
+.card-content1 .caption {
+    font-size: 12px;
+    padding-top: 10px;
+    padding-right: 30px;
+    text-align: left;
+    font-weight: 450;
+}
+.card-content2 {
+    margin: 10px;
+    display: flex;
+    justify-content: start;
+}
+.card-content2 ul li {
+    list-style: none;
+    margin-left: -10px;
+}
+.card-content2 ul li i{
+    font-size: 25px;
+    padding: 0 3px;
+    color:rgb(29, 28, 59);
+}
+.card-content3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 5px;
+    padding-bottom: 10px;
+}
+.card-content3 button {
+    width: 60%;
+    cursor: pointer;
+    background-color: rgb(29, 28, 59);
+    color: white;
+    border-radius: 10px;
+}
+.card-content3 button:hover {
+    background-color: lightblue;
+    color: rgb(29, 28, 59);
+    border-style: none;
+    font-weight: bold;
+    box-shadow: 0 0 5px;
+}
+.input-image {
+    background-color: rgb(194, 201, 221);
+    border-radius: 5px;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (min-width: 710px) and (max-width: 1100px) {
+    .base {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 710px) {
+    form div { 
+        width: 400px;
+    }
+    .base {
+        grid-template-columns: auto auto;   
+    }
+}
+@media only screen and (min-width: 500px) and (max-width: 715px) {
+    form div { 
+        width: 380px;
+    }
+    .base {
+        grid-template-columns: auto auto;
+    }
+    .base-card {
+        width: 250px;   
+    }
+}
+@media only screen and (min-width: 400px) and (max-width: 500px) {
+    form div { 
+        width: 300px;
+    }
+    .base {
+        grid-template-columns: auto;
+    }
+    .base-card {
+        width: 300px;   
+    }
+}
+@media only screen and (min-width: 300px) and (max-width: 400px) {
+    form div { 
+        width: 280px;
+    }
+    .base {
+        grid-template-columns: auto;
+    }
+    .base-card {
+        width: 300px;   
+    }
+}
