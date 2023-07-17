@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Project</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-primary pt-0">
+        <div class="container-fluid" style="background-color: rgb(163, 175, 234);">
+            <img src="img/logo.png" alt="" style="width: 50px; height: 100%; padding: 5px;">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 m-2 ms-3" >
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html">Add Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="testimonial.html">Testimonials</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-primary me-5 rounded-pill" type="submit">
+                    <a href="contact.html" id="btn-contact" style="text-decoration: none;">Contact me</a>
+                </button>
+            </div>
+        </nav>
+    <!-- End Navbar -->
+
+    <!--Start Form -->
+    <div class="container-form mt-5" style="display: flex; flex-direction: column; margin-top: 15px; margin-bottom: 30px; width: 100%; align-items: center;" >
+        <form style="width: 650px; margin: auto;" class="form-content" onsubmit="addData(event)">
+            <div class="mb-3">
+              <label for="projectName" class="form-label">Project Name</label>
+              <input type="text" class="form-control" id="projectName" aria-describedby="emailHelp" placeholder="Project Name">
+            </div>
+            <div class="input-group mb-3 d-flex justify-content-between">
+                <div class="start-date" style="width: 40%;">
+                    <label for="start-date" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="start-date">
+                </div>
+                <div class="end-date" style="width: 40%;">
+                    <label for="end-date" class="form-label">End Date</label>
+                    <input type="date" class="form-control"id="end-date">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="4" placeholder="Your Project Description"></textarea>
+            </div>
+            <div class="technologies-container mb-3">
+                    <label class="form-label">Technologies</label>
+                    <div class="technologies-checkbox d-flex justify-content-between" style="width: 70%;">
+                        <div class="checkbox-left">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="nodejs">
+                                <label class="form-check-label" for="nodejs">
+                                Node JS
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="reactjs" checked>
+                                <label class="form-check-label" for="reactjs">
+                                React JS
+                                </label>
+                            </div>
+                        </div>
+                        <div class="checkbox-right">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="java">
+                                <label class="form-check-label" for="java">
+                                JavaScript
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="golang" checked>
+                                <label class="form-check-label" for="golang">
+                                Golang
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="image-input">
+                <label class="form-label">Upload Image</label>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="input-image">
+                    <label class="input-group-text bg-success text-light" for="input-image">Upload</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="container-project">
+        <h2 class="text-center mt-4" style="font-weight: bold;">My Projects</h2>
+        <div class="row m-3 d-flex; justify-content-center" id="projects">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12" style="display: flex; justify-content: center; align-items: center;">
+            
+            </div>
+        </div>
+    </div>
+    <script src="js/project2.js"></script>
+</body>
+</html>

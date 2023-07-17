@@ -1,0 +1,125 @@
+.testimonial {
+    width: 100%;
+    height: 100vh;
+    padding: 30px 0;
+}
+.testimonials {
+    padding-top: 30px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
+}
+.testimonial-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 350px;
+    height: 190px;
+    background-color: rgb(221, 214, 242);
+    box-shadow: 0 0 5px;
+    border-radius: 5px;
+}
+.content-right {
+    width: 40%;
+    background-color: aqua;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#image-testimonial {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.content-left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 15px;
+}
+.ratingStar{
+    display: flex;
+    gap: 5px;
+}
+.ratingStar img {
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+#quote-testimonial {
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 15px;
+}
+#user-testimonial {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+#job-testimonial {
+    margin-top: -15px;
+    font-weight: normal;
+    font-size: 12px;
+}
+.container-rating {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rating-btn {
+    margin: 20px;
+    padding: 0px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    background-color: rgb(31, 30, 30);
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: none;
+}
+.rating-btn:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+    background-color: rgb(85, 89, 203);
+}
+
+/* RESPONSIVE */
+@media only screen and (min-width: 600px) and (max-width: 850px) {
+    .testimonial-content {
+        width: 350px;
+        height: 200px;
+    }
+    
+}
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+    .testimonials {
+        grid-template-columns: auto;
+    }
+    .testimonial-content {
+        width: 350px;
+        height: 200px;
+    }
+    .rating {
+        justify-content: center;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .testimonials {
+        grid-template-columns: auto;
+    }
+    .testimonial-content {
+        width: 350px;
+        height: 200px;
+    }
+    .rating {
+        justify-content: center;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+}

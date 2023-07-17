@@ -1,0 +1,289 @@
+
+.base {
+    width: 80%;
+    height: 35%;
+    border-radius: 10px;
+    box-shadow: 0 0 8px;
+    margin: 50px auto;
+}
+.base-content {
+    height: 85%;
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+.content1 {
+    display: flex;
+    padding: 40px 20px;
+    flex-direction: column;
+    width: 50%;
+}
+.fill-1 {
+    display: flex;
+    flex-direction: column;
+}
+.fill-1 h2 {
+    padding-bottom: 20px;
+}
+.fill-1 p {
+    text-align: justify; 
+    font-size: 13px;
+}
+.fill-2 {
+    display: flex;
+    margin: 30px 0;
+}
+.fill-2 button a {
+    color: white;
+    text-decoration: none;
+}
+.fill-2 button {
+    color: white;
+    padding: 5px 27px;
+    background-color:rgb(29, 29, 71);
+    border-radius: 15px;
+    border-style: none;
+}
+.fill-2 button:hover {
+    background-color: green;
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
+.fill-2 p {
+    padding-top: 5px;
+    margin-left: 15px;
+}
+.fill-2 p a {
+    text-decoration: none;
+    color: rgb(29, 29, 71);
+    font-weight: 400;
+    font-size: 13px;
+}
+.fill-2 p a:hover {
+    color: green;
+}
+.sosmed {
+    display: flex;
+    justify-content: start;
+}
+.icon {
+    padding: 5px;
+}
+.icon a {
+    color: rgb(29, 29, 71);
+}
+.sosmed ul li {
+    list-style-type: none;
+}
+.sosmed ul li a {
+    font-size: 30px;
+    padding: 0 10px;
+    color: rgb(29, 29, 71);
+}
+.sosmed ul li a:hover {
+    color: rgb(64, 64, 150);
+}
+.card:hover {
+    transform: translate(-7px, -12px);
+    transition: 0.5s;
+    color: rgb(59, 59, 95);
+}
+.card-content2 {
+    margin: 10px;
+    display: flex;
+    justify-content: start;
+}
+.card-content2 ul li {
+    list-style: none;
+    margin-left: -40px;
+}
+.card-content2 ul li i{
+    font-size: 30px;
+    padding: 0 5px;
+    color:rgb(29, 28, 59);
+}
+
+
+/* RESPONSIVE STYLING */
+@media only screen and (min-width: 800px) and (max-width: 900px) {
+    .base {
+    width: 80%;
+    height: 30%;
+    }
+    .base-content {
+        height: 75%;
+    }
+    .card {
+        width: 43% !important;
+        margin: 70px 0 !important;
+    }
+}
+@media only screen and (min-width: 650px) and (max-width: 799px) {
+    .base {
+    width: 80%;
+    height: 30%;
+    }
+    .base-content {
+        height: 75%;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0px;
+    }
+    .card { 
+        width: 43%;
+        margin: 20px 0;
+    }
+    .content1 {
+        width: 80%;
+        padding: 10px 0px;
+    }
+    .fill-2 {
+        justify-content: center;
+    }
+    .sosmed {
+        justify-content: center;
+    }
+    .card {
+        width: 50% !important;
+        height: 25% !important;
+        margin: 20px 0 !important;
+    }
+}
+@media only screen and (min-width: 410px) and (max-width: 650px) {
+    .base {
+    width: 80%;
+    height: 30%;
+    }
+    .base-content {
+        height: 75%;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0px;
+    }
+    .card {
+        width: 43%;
+        margin: 20px 0;
+    }
+    .content1 {
+        width: 80%;
+        padding: 10px 0px;
+    }
+    .fill-2 {
+        justify-content: center;
+    }
+    .sosmed {
+        justify-content: center;
+    }
+    .card {
+        width: 65% !important;
+        height: 40% !important;
+        margin: 20px 0 !important;
+    }
+    /* .card-text {
+        padding-bottom: 15px !important;
+    } */
+}
+
+@media only screen and (min-width: 300px) and (max-width: 410px) {
+    .base {
+        width: 80%;
+        height: 30%;
+    }
+    .base-content {
+        height: 75%;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0px;
+    }
+    .card {
+        width: 43%;
+        margin: 20px 0;
+    }
+    .content1 {
+        width: 80%;
+        padding: 10px 0px;
+    }
+    .fill-2 {
+        justify-content: center;
+    }
+    .sosmed {
+        justify-content: center;
+    }
+    .card {
+        width: 65% !important;
+        height: 40% !important;
+        margin: 20px 0 !important;
+    }
+    .fill-1 p {
+        font-size: 11px;
+    }
+    .fill-1 h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+    .card-title {
+        font-size: 15px !important;
+    }
+    .card-text {
+        font-size: 14px !important;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .base {
+        width: 80%;
+        height: 30%;
+    }
+    .base-content {
+        height: 75%;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0px;
+    }
+    .card {
+        width: 43% !important;
+        margin: 20px 0 !important;
+    }
+    .content1 {
+        width: 80%;
+        padding: 10px 0px;
+    }
+    .fill-2 {
+        justify-content: center;
+    }
+    .sosmed {
+        justify-content: center;
+    }
+    .card {
+        width: 65% !important;
+        height: 40% !important;
+        margin: 20px 0 !important;
+    }
+    /* .card-text {
+        padding-bottom: 15px !important;
+    } */
+    .fill-1 p {
+        font-size: 11px;
+    }
+    .fill-1 h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+    .card-title {
+        font-size: 14px !important;
+    }
+    .card-text{
+        font-size: 13px !important;
+    }
+    .fill-2 button {
+        padding: 3px 12px;
+        font-size: 12px;
+    }
+    .fill-2 p a { 
+        font-size: 11px;
+    }
+    .sosmed ul li a {
+        font-size: 25px;
+    }
+}
+

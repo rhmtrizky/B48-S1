@@ -1,0 +1,14 @@
+.nav-link:hover {
+    color: white !important;
+    background-color:rgb(111, 111, 243) !important;
+    border-radius: 10px;
+}
+.nav-link {
+    font-weight: 600 !important;
+}
+#btn-contact {
+    font-weight: 600 !important;
+}
+#btn-contact:hover {
+    color: white !important;
+}

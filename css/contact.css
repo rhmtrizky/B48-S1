@@ -1,0 +1,20 @@
+@media screen and (min-width: 600px ) and (max-width: 685px) {
+    .form-contact {
+        width: 550px !important;
+    }
+}
+@media screen and (min-width: 480px ) and (max-width: 600px) {
+    .form-contact {
+        width: 450px !important;
+    }
+}
+@media screen and (min-width: 300px ) and (max-width: 480px) {
+    .form-contact {
+        width: 300px !important;
+    }
+}
+@media screen and (max-width: 300px) {
+    .form-contact {
+        width: 250px !important;
+    }
+}

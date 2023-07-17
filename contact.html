@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-primary pt-0">
+        <div class="container-fluid" style="background-color: rgb(163, 175, 234);">
+            <img src="img/logo.png" alt="" style="width: 50px; height: 100%; padding: 5px;">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 m-2 ms-3" >
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html">Add Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="testimonial.html">Testimonials</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-primary me-5 rounded-pill" type="submit">
+                    <a href="contact.html" id="btn-contact" style="text-decoration: none;">Contact me</a>
+                </button>
+            </div>
+        </nav>
+    <!-- End Navbar -->
+
+    <!-- Start Form Contact -->
+    <div class="container-form mt-5" style="display: flex; flex-direction: column; margin-top: 15px; margin-bottom: 30px; width: 100%; align-items: center;" >
+        <h2 style="font-weight: bold; margin-bottom: 30px;">FILL OUT THE FORM</h2>
+        <form class="form-contact" style="width: 650px; margin: auto; ">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="example123@yourmail.com">
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="number" class="form-control" id="phone" placeholder="+628 xxxx xxxx">
+            </div>
+            <div class="subject mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <select class="form-select" id="subject">
+                    <option selected hidden>Choose Your Subject</option>
+                    <option value="Frontend Developer">Frontend Developer</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                    <option value="Fullstack Developer">Fullstack Developer</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="What do you wanna say.."></textarea>
+            </div>
+            <div class="d-grid gap-2 d-flex justify-content-between">
+                <button class="btn btn-danger" type="reset" id="reset">Reset</button>
+                <button class="btn btn-primary" type="submit" id="submit" onclick="submitData(event)">Submit</button>
+              </div>
+        </form>
+    </div>
+    <!-- End Form Contact -->
+    <script src="js/contact.js"></script>
+</body>
