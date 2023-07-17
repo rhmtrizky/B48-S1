@@ -1,0 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+body {
+    background-color:rgb(196, 210, 216);
+    background-image: url(../img/image-background.jpg);
+    background-size: cover;
+}
