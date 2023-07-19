@@ -69,3 +69,184 @@ h1 {
     font-size: 13px;
     text-align: justify;
 }
+
+@media screen and (min-width:1081px) and (max-width: 1160px) {
+    .tecnologies-position {
+        flex-direction: column;
+    }
+}
+@media screen and (min-width:960px) and (max-width: 1080px) {
+    .project-detail-content1 {
+        flex-direction: column;
+    }
+    .project-detail-content .project-detail-image img{
+        margin-left: 80px;
+    }
+    .project-detail-desc { 
+        display: flex;
+        width: 80%;
+        justify-content: center;
+        margin-left: 80px;
+    }
+    .tecnologies-position {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .project-detail-tecnologies {
+        margin-left: 50px;
+
+    }
+
+}
+@media screen and (min-width:730px) and (max-width: 960px) {
+    .project-detail-content1 {
+        flex-direction: column;
+    }
+    .project-detail-desc { 
+        display: flex;
+        width: 80%;
+        justify-content: center;
+        margin-left: 80px;
+    }
+    .tecnologies-position {
+        width: 80%;
+    }
+    .project-detail-tecnologies {
+        margin-left: 50px;
+    }
+
+    .project-detail-image img {
+        display: grid;
+        grid-template-columns: auto;
+        width: 600px;
+    }
+
+}
+@media screen and (min-width:690px) and (max-width: 730px) {
+    .project-detail-content1 {
+        flex-direction: column;
+    }
+    .project-detail-desc { 
+        width: 80%;
+        justify-content: center;
+        margin-left: 80px;
+    }
+    .tecnologies-position {
+        width: 80%;
+    }
+
+    .project-detail-image img {
+        margin: auto;
+        width: 600px;
+    }
+
+}
+@media screen and (min-width:590px) and (max-width: 690px) {
+    .project-detail-content1 {
+        flex-direction: column;
+    }
+    .project-detail-desc { 
+        width: 80%;
+        justify-content: center;
+        margin-left: 80px;
+    }
+    .tecnologies-position {
+        width: 80%;
+    }
+
+    .project-detail-image img {
+        margin: auto ;
+        width: 500px;
+    }
+    .project-detail-content2 p {
+        padding-top: 50px;
+        padding-bottom: 30px;
+        font-size: 13px;
+        text-align: justify;
+        width: 70%;
+        margin: auto;
+    }
+}
+@media screen and (min-width:493px) and (max-width: 590px) {
+    .project-detail-content1 {
+        flex-direction: column;
+    }
+    .project-detail-desc { 
+        width: 80%;
+        justify-content: center;
+        margin-left: 80px;
+    }
+    .tecnologies-position {
+        width: 80%;
+    }
+
+    .project-detail-image img {
+        margin: auto ;
+        width: 400px;
+    }
+    .project-detail-content2 p {
+        padding-top: 50px;
+        padding-bottom: 30px;
+        font-size: 13px;
+        text-align: justify;
+        width: 70%;
+        margin: auto;
+    }
+}
+@media screen and (min-width:425px) and (max-width: 493px) {
+    .project-detail-content1 {
+        flex-direction: column;
+    }
+    .project-detail-desc { 
+        width: 80%;
+        justify-content: center;
+        margin-left: 60px;
+    }
+    .tecnologies-position {
+        width: 80%;
+    }
+    .project-detail-image img {
+        margin: auto ;
+        width: 350px;
+    }
+    .project-detail-content2 p {
+        padding-top: 50px;
+        padding-bottom: 30px;
+        font-size: 13px;
+        text-align: justify;
+        width: 100%;
+        margin: auto;
+    }
+    .tecnologies-position {
+        flex-direction: column;
+    }
+}
+@media screen and (min-width:350px) and (max-width: 435px) {
+    .project-detail-content1 {
+        flex-direction: column;
+    }
+    .project-detail-desc { 
+        width: 80%;
+        justify-content: center;
+        margin-left: 40px;
+    }
+    .tecnologies-position {
+        width: 80%;
+    }
+    .project-detail-image img {
+        margin: auto ;
+        width: 300px;
+    }
+    .project-detail-content2 p {
+        padding-top: 50px;
+        padding-bottom: 30px;
+        font-size: 13px;
+        text-align: justify;
+        width: 100%;
+        margin: auto;
+    }
+    .tecnologies-position {
+        flex-direction: column;
+    }
+}
