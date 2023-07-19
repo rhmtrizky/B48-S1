@@ -98,7 +98,7 @@ function addData(program) {
     document.getElementById("description").value = "";
     document.getElementById("nodejs").checked = false;
     document.getElementById("reactjs").checked = false;
-    document.getElementById("javaScript").checked = false;
+    document.getElementById("java").checked = false;
     document.getElementById("golang").checked = false;
     document.getElementById("input-image").value = "";
 }

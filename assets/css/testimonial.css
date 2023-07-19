@@ -88,10 +88,34 @@
 }
 
 /* RESPONSIVE */
-@media only screen and (min-width: 600px) and (max-width: 850px) {
+@media only screen and (min-width: 850px) and (max-width: 1995px) {
+    .testimonials {
+        grid-template-columns: auto auto;
+    }
+    
+}
+@media only screen and (min-width: 780px) and (max-width: 850px) {
     .testimonial-content {
         width: 350px;
         height: 200px;
+    }
+    .testimonials {
+        grid-template-columns: auto auto;
+    }
+    
+}
+@media only screen and (min-width: 601px) and (max-width: 780px) {
+    .testimonial-content {
+        width: 350px;
+        height: 200px;
+    }
+    .rating {
+        justify-content: center;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    .testimonials {
+        grid-template-columns: auto;
     }
     
 }

@@ -12,3 +12,9 @@
 #btn-contact:hover {
     color: white !important;
 }
+
+@media screen and (max-width: 991px) {
+    .collapse {
+        padding-bottom: 20px !important;
+    }
+}
