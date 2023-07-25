@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add Project</title>
+    <title>Project</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
     <link rel="stylesheet" href="/assets/css/home.css">
     <link rel="stylesheet" href="/assets/css/navbar.css">
@@ -26,95 +26,83 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 m-2 ms-3" >
                     <li class="nav-item">
-                        <a class="nav-link" href="home">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="project">Add Project</a>
+                        <a class="nav-link" href="/project">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="testimonial">Testimonials</a>
+                        <a class="nav-link" href="/testimonial">Testimonials</a>
                     </li>
                 </ul>
                 <button class="btn btn-outline-primary me-5 rounded-pill" type="submit">
-                    <a href="contact" id="btn-contact" style="text-decoration: none;">Contact me</a>
+                    <a href="/contact" id="btn-contact" style="text-decoration: none;">Contact me</a>
                 </button>
             </div>
         </nav>
     <!-- End Navbar -->
 
-    <!--Start Form -->
-    <div class="container-form mt-5" style="display: flex; flex-direction: column; margin-top: 15px; margin-bottom: 30px; width: 100%; align-items: center;" >
-        <form class="form-content" action="/add-project" method="post" style="width: 650px; margin: auto;" >
-            <div class="mb-3">
-              <label for="projectName" class="form-label">Project Name</label>
-              <input type="text" class="form-control" id="projectName" name="nameProject" aria-describedby="emailHelp" placeholder="Project Name">
-            </div>
-            <div class="input-group mb-3 d-flex justify-content-between">
-                <div class="start-date" style="width: 40%;">
-                    <label for="start-date" class="form-label">Start Date</label>
-                    <input type="date" class="form-control" id="start-date" name="startDate">
-                </div>
-                <div class="end-date" style="width: 40%;">
-                    <label for="end-date" class="form-label">End Date</label>
-                    <input type="date" class="form-control" id="end-date" name="endDate">
+    <!-- Start Projects -->
+    <section id="projects-container">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col mt-4">
+                    <h2 style="font-weight: bold;">My Projects</h2>
                 </div>
             </div>
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="desc" rows="4" placeholder="Your Project Description"></textarea>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <button class="btn btn-secondary me-md-2" type="button"> <a href="/form-project" style="color: white; text-decoration: none;">Add New Project</a></button>
             </div>
-            <div class="technologies-container mb-3">
-                    <label class="form-label">Technologies</label>
-                    <div class="technologies-checkbox d-flex justify-content-between" style="width: 70%;">
-                        <div class="checkbox-left">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="checked" id="nodejs" name="node">
-                                <label class="form-check-label" for="nodejs">
-                                Node JS
-                                </label>
+            <div class="row m-3">
+                {{ range $index, $project := .Projects }}
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12" id="projects" style="display: flex; justify-content: center; align-items: center;">
+                    <div class="card-project bg-opacity-50 m-3" style="width: 280px; height: 450px; box-shadow: 0 0 8px; background-color:rgb(222, 216, 255)">
+                        <img src="../assets/img/project1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body p-2">
+                            <h5 class="mb-0" style="font-weight: bold;">{{$project.ProjectName}} </h5>
+                            <p class="card-text mb-1" style="font-size: 14px;">Durasi: {{$project.Duration}}</p>
+                            <button type="button" id="btn-view" class="btn btn-outline-primary rounded-pill p-1 mb-3 bg-primary" style="width: 90px; font-size: 11px;"><a href="/detail-project/{{$index}}" target="_blank" style="text-decoration: none; color: white">view more</a></button>
+                            <p class="card-text" style="font-size: 14px; height: 60px;">{{$project.Description}} </p>
+                            <div class="card-content2">
+                                <ul>
+                                    <li>
+                                        {{if $project.Nodejs}}
+                                        <i class="fa-brands fa-node-js"></i>
+                                        {{end}} {{if $project.Reactjs}}
+                                        <i class="fa-brands fa-react"></i>
+                                        {{end}} {{if $project.JavaScript}}
+                                        <i class="fa-brands fa-java"></i>
+                                        {{end}} {{if $project.Golang}}
+                                        <i class="fa-brands fa-golang"></i> 
+                                        {{end}}
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="checked" id="reactjs" name="react">
-                                <label class="form-check-label" for="reactjs">
-                                React JS
-                                </label>
-                            </div>
-                        </div>
-                        <div class="checkbox-right">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="checked" id="java" name="javaScript">
-                                <label class="form-check-label" for="java">
-                                JavaScript
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="checked" id="golang" name="go">
-                                <label class="form-check-label" for="golang">
-                                Golang
-                                </label>
+                            <div class="d-flex gap-2 justify-content-evenly">
+                                <form action="/formUpdate/{{$index}}" method="get" style="width: 50%;">
+                                    <button class="btn btn-success" style="width: 100%;">Edit</button>
+                                </form>
+                                <form action="/deleteProject/{{$index}}" method="POST" style="width: 50%;">
+                                    <button class="btn btn-danger" style="width: 100%;">Delete</button>
+                                </form>
                             </div>
                         </div>
                     </div>
-            </div>
-            <div class="image-input">
-                <label class="form-label">Upload Image</label>
-                <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="input-image" name="image">
-                    <label class="input-group-text bg-success text-light" for="input-image">Upload</label>
                 </div>
+                {{ end }}
             </div>
-            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-        </form>
-    </div>
+        </div>
+    </section>
+    <!-- End Projects -->
 
-    <div class="container-project">
+    <!-- <div class="container-project">
         <h2 class="text-center mt-4" style="font-weight: bold;">My Projects</h2>
         <div class="row m-3 d-flex; justify-content-center" id="projects">
             <div class="col-lg-4 col-md-6 col-sm-12 col-12" style="display: flex; justify-content: center; align-items: center;">
             
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="../assets/js/project2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
