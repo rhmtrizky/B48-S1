@@ -54,14 +54,14 @@
                 <button class="btn btn-secondary me-md-2" type="button"> <a href="/form-project" style="color: white; text-decoration: none;">Add New Project</a></button>
             </div>
             <div class="row m-3">
-                {{ range $index, $project := .Projects }}
+                {{ range $project := .Projects }}
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12" id="projects" style="display: flex; justify-content: center; align-items: center;">
                     <div class="card-project bg-opacity-50 m-3" style="width: 280px; height: 450px; box-shadow: 0 0 8px; background-color:rgb(222, 216, 255)">
                         <img src="../assets/img/project1.jpg" class="card-img-top" alt="...">
                         <div class="card-body p-2">
                             <h5 class="mb-0" style="font-weight: bold;">{{$project.ProjectName}} </h5>
                             <p class="card-text mb-1" style="font-size: 14px;">Durasi: {{$project.Duration}}</p>
-                            <button type="button" id="btn-view" class="btn btn-outline-primary rounded-pill p-1 mb-3 bg-primary" style="width: 90px; font-size: 11px;"><a href="/detail-project/{{$index}}" target="_blank" style="text-decoration: none; color: white">view more</a></button>
+                            <button type="button" id="btn-view" class="btn btn-outline-primary rounded-pill p-1 mb-3 bg-primary" style="width: 90px; font-size: 11px;"><a href="/detail-project/{{$project.Id}}" target="_blank" style="text-decoration: none; color: white">view more</a></button>
                             <p class="card-text" style="font-size: 14px; height: 60px;">{{$project.Description}} </p>
                             <div class="card-content2">
                                 <ul>
@@ -79,10 +79,10 @@
                                 </ul>
                             </div>
                             <div class="d-flex gap-2 justify-content-evenly">
-                                <form action="/formUpdate/{{$index}}" method="get" style="width: 50%;">
+                                <form action="/formUpdate/{{$project.Id}}" method="get" style="width: 50%;">
                                     <button class="btn btn-success" style="width: 100%;">Edit</button>
                                 </form>
-                                <form action="/deleteProject/{{$index}}" method="POST" style="width: 50%;">
+                                <form action="/deleteProject/{{$project.Id}}" method="POST" style="width: 50%;">
                                     <button class="btn btn-danger" style="width: 100%;">Delete</button>
                                 </form>
                             </div>

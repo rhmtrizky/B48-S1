@@ -46,9 +46,12 @@
     <!--Start Form -->
     <div class="container-form mt-5" style="display: flex; flex-direction: column; margin-top: 15px; margin-bottom: 30px; width: 100%; align-items: center;" >
         <form class="form-content" action="/add-project" method="POST" style="width: 650px; margin: auto;" >
+            <!-- <div class="mb-3">
+              <input type="text" class="form-control" name="id" aria-describedby="emailHelp" placeholder="id">
+            </div> -->
             <div class="mb-3">
               <label for="projectName" class="form-label">Project Name</label>
-              <input type="text" class="form-control" id="projectName" name="nameProject" aria-describedby="emailHelp" placeholder="Project Name">
+              <input type="text" class="form-control" name="nameProject" placeholder="Project Name">
             </div>
             <div class="input-group mb-3 d-flex justify-content-between">
                 <div class="start-date" style="width: 40%;">
@@ -69,13 +72,13 @@
                     <div class="technologies-checkbox d-flex justify-content-between" style="width: 70%;">
                         <div class="checkbox-left">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="nodejs" id="nodejs" name="node">
+                                <input class="form-check-input" type="checkbox" value="true" id="nodejs" name="node">
                                 <label class="form-check-label" for="nodejs">
                                 Node JS
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="reactjs" id="reactjs" name="react">
+                                <input class="form-check-input" type="checkbox" value="true" id="reactjs" name="react">
                                 <label class="form-check-label" for="reactjs">
                                 React JS
                                 </label>
@@ -83,13 +86,13 @@
                         </div>
                         <div class="checkbox-right">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="javaScript" id="java" name="javaScript">
+                                <input class="form-check-input" type="checkbox" value="true" id="java" name="javaScript">
                                 <label class="form-check-label" for="java">
                                 JavaScript
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="golang" id="golang" name="go">
+                                <input class="form-check-input" type="checkbox" value="true" id="golang" name="go">
                                 <label class="form-check-label" for="golang">
                                 Golang
                                 </label>
