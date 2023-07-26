@@ -104,7 +104,7 @@ func project(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err.Error())
 	} 
 
-	dataProjects, errDb := connection.Conn.Query(context.Background(), "select * from tb_projects")
+	dataProjects, errDb := connection.Conn.Query(context.Background(), "select * from tb_project")
 
 	if errDb != nil {
 		return c.JSON(http.StatusInternalServerError, errDb.Error())
@@ -114,7 +114,7 @@ func project(c echo.Context) error {
 	for dataProjects.Next() {
 		var dataDb = Project{}
 
-		err := dataProjects.Scan(&dataDb.ProjectName, &dataDb.StartDate, &dataDb.EndDate, &dataDb.Duration, &dataDb.Description, &dataDb.Nodejs, &dataDb.Reactjs, &dataDb.JavaScript, &dataDb.Golang, &dataDb.Image, &dataDb.Id)
+		err := dataProjects.Scan(&dataDb.Id, &dataDb.ProjectName, &dataDb.StartDate, &dataDb.EndDate, &dataDb.Duration, &dataDb.Description, &dataDb.Nodejs, &dataDb.Reactjs, &dataDb.JavaScript, &dataDb.Golang, &dataDb.Image)
 		if err != nil {
 			return c.JSON(http.StatusInternalServerError, err.Error())
 		}
@@ -194,7 +194,7 @@ func detailProject(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, map[string]string{"message": "Invalid ID"})
 	}
 
-	dataProject, err := connection.Conn.Query(context.Background(), "SELECT * FROM tb_projects WHERE id=$1", idToInt)
+	dataProject, err := connection.Conn.Query(context.Background(), "SELECT * FROM tb_project WHERE id=$1", idToInt)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())
 	}
@@ -204,6 +204,7 @@ func detailProject(c echo.Context) error {
 		var detailProject = Project{}
 
 		err = dataProject.Scan(
+			&detailProject.Id,
 			&detailProject.ProjectName,
 			&detailProject.StartDate,
 			&detailProject.EndDate,
@@ -214,7 +215,6 @@ func detailProject(c echo.Context) error {
 			&detailProject.JavaScript,
 			&detailProject.Golang,
 			&detailProject.Image,
-			&detailProject.Id,
 		)
 		if err != nil {
 			return c.JSON(http.StatusInternalServerError, err.Error())
@@ -298,7 +298,11 @@ func deleteProject(c echo.Context) error {
 
 	idToInt, _ := strconv.Atoi(id)
 
-	dataProjects = append(dataProjects[:idToInt], dataProjects[idToInt+1:]...)
+	_, err := connection.Conn.Exec(context.Background(), "DELETE FROM tb_project WHERE id=$1",  idToInt)
+
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
+	}
 
 	return c.Redirect(http.StatusMovedPermanently, "/project")
 }
@@ -314,18 +318,13 @@ func durationDistance(dStart string, dEnd string) string {
 	months := weeks / 4
 	years := months / 12
 
-	if days < 7 {
+	if months > 12 {
+		return strconv.Itoa(years) + " tahun " + strconv.Itoa(months%12) + " bulan " + strconv.Itoa(weeks%4) + " minggu " + strconv.Itoa(days%7) + " hari"
+	} else if weeks > 4 {
+		return strconv.Itoa(months) + " bulan " + strconv.Itoa(weeks%4) + " minggu " + strconv.Itoa(days%7) + " hari"
+	} else if days >= 7 {
+		return strconv.Itoa(weeks) + " minggu " + strconv.Itoa(days%7) + " hari"
+	} else {
 		return strconv.Itoa(days) + " hari"
 	}
-	if days >= 7 {
-		return strconv.Itoa(weeks) + " minggu " + strconv.Itoa(days % 7) + " hari" 
-	}
-	if weeks >= 4 {
-		return strconv.Itoa(months) + " bulan " + strconv.Itoa(weeks % 7) + " minggu " + strconv.Itoa(days % 7) + " hari"
-	}
-	if months >= 12 {
-		return strconv.Itoa(years) + " tahun " + strconv.Itoa(months % 12) + " bulan " + strconv.Itoa(weeks % 7) + " minggu " + strconv.Itoa(days % 7) + " hari"
-	} 
-	return strconv.Itoa(int(distance)) + " jam"
 }
-
