@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"html/template"
 	"my-web-module/connection"
+	"my-web-module/middleware"
 	"net/http"
 	"strconv"
 	"time"
+	"unicode"
 
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo-contrib/session"
@@ -27,6 +29,7 @@ type Project struct {
 	JavaScript bool
 	Golang bool
 	Image  string
+	Author  string
 }
 
 type User struct {
@@ -39,9 +42,11 @@ type User struct {
 type UserLoginSession struct {
 	IsLogin bool
 	Name string
+	Id int
 }
 
 var userLoginSession = UserLoginSession{}
+
 
 // var dataProjects = []Project{
 // 	{
@@ -81,6 +86,7 @@ func main() {
 	route.Use(session.Middleware(sessions.NewCookieStore([]byte("rizky123"))))
 
 	route.Static("/assets", "assets")
+	route.Static("/uploads", "uploads")
 
 	route.GET("/", home)
 	route.GET("/contact", contact)
@@ -100,9 +106,9 @@ func main() {
 	route.POST("/register", register)
 
 
-	route.POST("/add-project", addProject)
+	route.POST("/add-project", middleware.UploadFile(addProject))
 	route.POST("/deleteProject/:id", deleteProject)
-	route.POST("/UpdateProject", updateProject)
+	route.POST("/UpdateProject", middleware.UploadFile(updateProject))
 
 	route.Logger.Fatal(route.Start("localhost:5000"))
 }
@@ -173,7 +179,7 @@ func project(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err.Error())
 	} 
 
-	dataProjects, errDb := connection.Conn.Query(context.Background(), "select * from tb_project")
+	dataProjects, errDb := connection.Conn.Query(context.Background(), "SELECT tb_project.id, tb_user.name, tb_project.project_name, tb_project.start_date, tb_project.end_date, tb_project.duration, tb_project.description, tb_project.nodejs, tb_project.reactjs, tb_project.java_script, tb_project.golang, tb_project.image FROM tb_project LEFT JOIN tb_user ON tb_project.author_id = tb_user.id")
 
 	if errDb != nil {
 		return c.JSON(http.StatusInternalServerError, errDb.Error())
@@ -183,7 +189,7 @@ func project(c echo.Context) error {
 	for dataProjects.Next() {
 		var dataDb = Project{}
 
-		err := dataProjects.Scan(&dataDb.Id, &dataDb.ProjectName, &dataDb.StartDate, &dataDb.EndDate, &dataDb.Duration, &dataDb.Description, &dataDb.Nodejs, &dataDb.Reactjs, &dataDb.JavaScript, &dataDb.Golang, &dataDb.Image)
+		err := dataProjects.Scan(&dataDb.Id, &dataDb.Author, &dataDb.ProjectName, &dataDb.StartDate, &dataDb.EndDate, &dataDb.Duration, &dataDb.Description, &dataDb.Nodejs, &dataDb.Reactjs, &dataDb.JavaScript, &dataDb.Golang, &dataDb.Image)
 		if err != nil {
 			return c.JSON(http.StatusInternalServerError, err.Error())
 		}
@@ -249,9 +255,11 @@ func addProject(c echo.Context) error {
 	reactjs := c.FormValue("react") == "true"
 	javaScript := c.FormValue("javaScript") == "true"
 	golang := c.FormValue("go") == "true"
-	image := c.FormValue("image")
+	image := c.Get("dataFile").(string)
 
-	takeData, err := connection.Conn.Exec(context.Background(), "INSERT INTO tb_project (project_name, start_date, end_date, description, duration, nodejs, reactjs, java_script, golang, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)", projectName, startDate, endDate, description, duration, nodejs, reactjs, javaScript, golang, image)
+	sess, _ := session.Get("session", c)
+
+	takeData, err := connection.Conn.Exec(context.Background(), "INSERT INTO tb_project (project_name, start_date, end_date, description, duration, nodejs, reactjs, java_script, golang, image, author_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)", projectName, startDate, endDate, description, duration, nodejs, reactjs, javaScript, golang, image, sess.Values["id"].(int))
 
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())
@@ -276,7 +284,7 @@ func detailProject(c echo.Context) error {
 
 	var detailProject = Project{}
 
-	errDetail := connection.Conn.QueryRow(context.Background(), "SELECT * FROM tb_project WHERE id=$1", idToInt).Scan(&detailProject.Id, &detailProject.ProjectName, &detailProject.StartDate, &detailProject.EndDate, &detailProject.Duration, &detailProject.Description, &detailProject.Nodejs, &detailProject.Reactjs, &detailProject.JavaScript, &detailProject.Golang, &detailProject.Image,)
+	errDetail := connection.Conn.QueryRow(context.Background(), "SELECT  tb_project.id, tb_user.name, tb_project.project_name, tb_project.start_date, tb_project.end_date, tb_project.duration, tb_project.description, tb_project.nodejs, tb_project.reactjs, tb_project.java_script, tb_project.golang, tb_project.image FROM tb_project LEFT JOIN tb_user ON tb_project.author_id = tb_user.id WHERE tb_project.id=$1", idToInt).Scan(&detailProject.Id, &detailProject.Author, &detailProject.ProjectName, &detailProject.StartDate, &detailProject.EndDate, &detailProject.Duration, &detailProject.Description, &detailProject.Nodejs, &detailProject.Reactjs, &detailProject.JavaScript, &detailProject.Golang, &detailProject.Image)
 
 	if errDetail != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())
@@ -317,7 +325,7 @@ func updateProject(c echo.Context) error {
 	reactjs := c.FormValue("react") == "true"
 	javaScript := c.FormValue("javaScript") == "true"
 	golang := c.FormValue("go") == "true"
-	image := c.FormValue("image")
+	image := c.Get("dataFile").(string)
 
 	sdate, _ := time.Parse("2006-01-02", startDate)
 	edate, _ := time.Parse("2006-01-02", endDate)
@@ -373,6 +381,17 @@ func register(c echo.Context) error {
 	email := c.FormValue("input-email")
 	password := c.FormValue("input-password")
 
+	charLenght, number, upper, special := verifyPassword(password)
+
+	// fmt.Println("minimal banyak huruf 4:", charLenght)
+    // fmt.Println("Mengandung angka:", number)
+    // fmt.Println("Mengandung huruf besar:", upper)
+    // fmt.Println("Mengandung karakter khusus:", special)
+
+	if !charLenght || !number || !upper || !special {
+		return redirectWithMessage(c, "Password tidak memenuhi", false, "/form-register")
+	}
+
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), 10)
 
 	if err != nil {
@@ -420,7 +439,7 @@ func login(c echo.Context) error {
 
 	dataUser := User{}
 
-	errCon := connection.Conn.QueryRow(context.Background(), "SELECT id, name, email, password FROM tb_user WHERE email=$1", email).Scan(&dataUser.Id, &dataUser.Name, &dataUser.Email, &dataUser.HashedPassword)
+	errCon := connection.Conn.QueryRow(context.Background(), "SELECT id, name, email, password FROM tb_user WHERE email=$1 AND password=$2", email, password).Scan(&dataUser.Id, &dataUser.Name, &dataUser.Email, &dataUser.HashedPassword)
 
 	if errCon != nil {
 		return redirectWithMessage(c, "Email atau password salah", false, "/form-login")
@@ -469,6 +488,26 @@ func logout(c echo.Context) error {
 	sess.Save(c.Request(), c.Response())
 
 	return redirectWithMessage(c, "Logout berhasil!", true, "/")
+}
+
+func verifyPassword(s string) (charLenght, number, upper, special bool) {
+	letters := 0
+	for _, c := range s {
+		switch {
+		case unicode.IsNumber(c):
+			number = true
+		case unicode.IsUpper(c):
+			upper = true
+			letters++
+		case unicode.IsPunct(c) || unicode.IsSymbol(c):
+			special = true
+		case unicode.IsLetter(c) || c == ' ':
+			letters++
+		default:
+		}
+	}
+	charLenght = letters >= 4
+	return
 }
 
 func durationDistance(dStart string, dEnd string) string {

@@ -36,10 +36,10 @@
                         <a class="nav-link" href="/testimonial">Testimonials</a>
                     </li>
                 </ul>
-                {{if .UserLoginSession.IsLogin }}
+                {{if .UserLoginSession.IsLogin }} 
                 <ul class="navbar-nav mb-2 m-2 ms-3 me-4" > 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Hallo, {{.UserLoginSession.Name }}</a>
+                    <li class="nav-item-hello">
+                        <a class="nav-link" href="/" style="font-size: 20px; color: rgb(11, 117, 134); font-family:monospace;">Hallo, {{.UserLoginSession.Name }}..</a>
                     </li>
                 </ul>
                 <form action="/logout" method="post">
@@ -67,7 +67,7 @@
         {{if .Flash.FlashStatus}}
         <div style="display: flex; justify-content: center;">
             <div class="alert alert-success bg-success alert-dismissible fade show" role="alert" style="width: 50%;">
-                <strong style="color: white;">{{.Flash.FlashMessage}}</strong>
+                <strong style="color: white;">Hallo, {{$.UserLoginSession.Name }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>

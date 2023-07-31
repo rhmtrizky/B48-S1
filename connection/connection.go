@@ -20,5 +20,5 @@ func DatabaseConnection() {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
 		os.Exit(1)
 	}
-	fmt.Println("Database is connected")
+	// fmt.Println("Database is connected")
 }

@@ -36,8 +36,8 @@
                 </ul>
                 {{if .UserLoginSession.IsLogin }}
                 <ul class="navbar-nav mb-2 m-2 ms-3 me-4" >
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Hallo, {{.UserLoginSession.Name }}</a>
+                    <li class="nav-item-hello">
+                        <a class="nav-link" href="/" style="font-size: 20px; color: rgb(11, 117, 134); font-family:monospace;">Hallo, {{.UserLoginSession.Name }}..</a>
                     </li>
                 </ul>
                 <form action="/logout" method="post">
@@ -83,13 +83,14 @@
                 {{ range $project := .Projects }}
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12" id="projects" style="display: flex; justify-content: center; align-items: center;">
                     <div class="card-project bg-opacity-50 m-3" style="width: 280px; height: 450px; box-shadow: 0 0 8px; background-color:rgb(222, 216, 255)">
-                        <img src="../assets/img/project1.jpg" class="card-img-top" alt="...">
+                        <img src="/uploads/{{$project.Image}}" class="card-img-top" alt="..." style="height: 160px; object-fit: cover;">
                         <div class="card-body p-2">
                             <h5 class="mb-0" style="font-weight: bold;">{{$project.ProjectName}} </h5>
                             <p class="card-text mb-1" style="font-size: 14px;">Durasi: {{$project.Duration}}</p>
-                            <button type="button" id="btn-view" class="btn btn-outline-primary rounded-pill p-1 mb-3 bg-primary" style="width: 90px; font-size: 11px;"><a href="/detail-project/{{$project.Id}}" target="_blank" style="text-decoration: none; color: white">view more</a></button>
-                            <p class="card-text" style="font-size: 14px; height: 60px;">{{$project.Description}} </p>
-                            <div class="card-content2">
+                            <button type="button" id="btn-view" class="btn btn-outline-primary rounded-pill p-1 mb-2 bg-primary" style="width: 90px; font-size: 11px;"><a href="/detail-project/{{$project.Id}}" target="_blank" style="text-decoration: none; color: white">view more</a></button>
+                            <p class="card-text mb-2" style="font-size: 14px; height: 60px;">"{{$project.Description}}"</p>
+                            <p class="author-text mb-0" style="font-size: 13px; height: 20px; font-weight: 550; font-family:'Courier New', Courier, monospace; font-style: italic;">- {{$project.Author}}</p>
+                            <div class="card-content2" style="height: 38px; margin-top: 13px;">
                                 <ul>
                                     <li>
                                         {{if $project.Nodejs}}
@@ -143,4 +144,4 @@
     <script src="../assets/js/project2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
-</html>
+</html> 

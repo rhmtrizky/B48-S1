@@ -37,8 +37,8 @@
                 </ul>
                 {{if .UserLoginSession.IsLogin }}
                 <ul class="navbar-nav mb-2 m-2 ms-3 me-4" >
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Hallo, {{.UserLoginSession.Name }}</a>
+                    <li class="nav-item-hello">
+                        <a class="nav-link" href="/" style="font-size: 20px; color: rgb(11, 117, 134); font-family:monospace;">Hallo, {{.UserLoginSession.Name }}..</a>
                     </li>
                 </ul>
                 <form action="/logout" method="post">
