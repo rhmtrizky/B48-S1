@@ -273,6 +273,8 @@ func addProject(c echo.Context) error {
 func detailProject(c echo.Context) error {
 	id := c.Param("id")
 
+
+
 	temp, err := template.ParseFiles("views/project-detail1.html")
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())
@@ -439,7 +441,7 @@ func login(c echo.Context) error {
 
 	dataUser := User{}
 
-	errCon := connection.Conn.QueryRow(context.Background(), "SELECT id, name, email, password FROM tb_user WHERE email=$1 AND password=$2", email, password).Scan(&dataUser.Id, &dataUser.Name, &dataUser.Email, &dataUser.HashedPassword)
+	errCon := connection.Conn.QueryRow(context.Background(), "SELECT id, name, email, password FROM tb_user WHERE email=$1", email).Scan(&dataUser.Id, &dataUser.Name, &dataUser.Email, &dataUser.HashedPassword)
 
 	if errCon != nil {
 		return redirectWithMessage(c, "Email atau password salah", false, "/form-login")

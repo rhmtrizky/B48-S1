@@ -46,9 +46,10 @@
     <div class="project-detail-base" id="project-detail">
         <h1>{{ .Project.ProjectName }}</h1>
         <div class="project-detail-content">
-            <div class="project-detail-content1">
+            <div class="project-detail-content1 mb-4">
                 <div class="project-detail-image">
-                    <img src="/assets/img/project1.jpg" alt="">
+                    <img src="/uploads/{{.Project.Image}}" alt="">
+                    <p style="font-style: italic; font-size: 13px;">Author : {{.Project.Author}}</p>
                 </div>
                 <div class="project-detail-desc">
                     <div class="project-detail-duration">
@@ -82,7 +83,7 @@
                 </div>
             </div>
             <div class="project-detail-content2">
-                <p>{{.Project.Description}} </p>
+                <p style="font-size: 17px;">{{.Project.Description}} </p>
             </div>
         </div>
        
